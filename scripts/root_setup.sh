@@ -10,7 +10,7 @@ sudo apt-get upgrade -y -qq > /dev/null
 sudo apt-get -y -q install linux-headers-$(uname -r) build-essential dkms nfs-common
 
 # Install basic dependencies
-sudo apt-get -y -q install curl wget git tmux vim
+sudo apt-get -y -q install curl wget git tmux vim emacs23
 
 # Setup sudo to allow no-password sudo for "sudo"
 cp /etc/sudoers /etc/sudoers.orig
