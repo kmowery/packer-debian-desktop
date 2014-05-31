@@ -12,12 +12,10 @@ sudo apt-get -y -q install linux-headers-$(uname -r) build-essential dkms nfs-co
 # Install basic dependencies
 sudo apt-get -y -q install curl wget git tmux vim
 
-# Setup sudo to allow no-password sudo for "admin"
-groupadd -r admin
-usermod -a -G admin vagrant
+# Setup sudo to allow no-password sudo for "sudo"
 cp /etc/sudoers /etc/sudoers.orig
-sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=admin' /etc/sudoers
-sed -i -e 's/%admin ALL=(ALL) ALL/%admin ALL=NOPASSWD:ALL/g' /etc/sudoers
+#sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
+sed -i -e 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo  ALL=NOPASSWD:ALL/g' /etc/sudoers
 
 # Install the VirtualBox guest additions
 mkdir /tmp/vbox
